@@ -3,7 +3,7 @@
 module I2C_Transmit(    
     output [7:0] led,
     input  FSM_Clk,
-    input  ILA_Clk,
+//    input  ILA_Clk,
 //     output ADT7420_A0,
 //     output ADT7420_A1,
     output I2C_SCL_1,

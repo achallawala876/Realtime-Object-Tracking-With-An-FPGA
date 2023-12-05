@@ -70,7 +70,7 @@ module finaltoplevel(
     I2C_Transmit I2C_Test1 (        
         .led(),
         .FSM_Clk(FSM_Clk),
-        .ILA_Clk(ILA_Clk),
+//        .ILA_Clk(ILA_Clk),
         // .ADT7420_A0(LSM303_INT1),
         // .ADT7420_A1(LSM303_INT2),
 
@@ -217,9 +217,9 @@ module finaltoplevel(
                         .ep_addr(8'h02),
                         .ep_dataout(add));
                         
-     okWireIn wire3 (  .okHE(okHE),
-                        .ep_addr(8'h03),
-                        .ep_dataout(Reset_Counter));
+//     okWireIn wire3 (  .okHE(okHE),
+//                        .ep_addr(8'h03),
+//                        .ep_dataout(Reset_Counter));
 
     // I2C wireins 
 
@@ -248,7 +248,7 @@ module finaltoplevel(
                         .ep_addr(8'h10),
                         .ep_dataout(cycle_count));
                                      
-                        
+    okTriggerIn trigIn53 (.okHE(okHE),.ep_addr(8'h40), .ep_clk(FSM_Clk), .ep_trigger(Reset_Counter));                    
     //////////////////////////////////////////////////////////// OK WIRE OUTS FOR SPI CONFIRMATION
     
     localparam endPt_count = 2 + 3;
@@ -287,9 +287,9 @@ module finaltoplevel(
     
     
     ////////////////////////////////////////////////////////// CAMERA READING CODE -> CLOCKS CONTROLLED INSIDE SPI MODULE
-    assign CVM300_CLK_IN = FSM_Clk;
+    assign CVM300_CLK_IN = ILA_Clk;
     
-    always @(posedge FSM_Clk) begin
+    always @(posedge ILA_Clk) begin
     
         if (Reset_Counter[0] == 1'b1) State <= STATE_RESET;
         

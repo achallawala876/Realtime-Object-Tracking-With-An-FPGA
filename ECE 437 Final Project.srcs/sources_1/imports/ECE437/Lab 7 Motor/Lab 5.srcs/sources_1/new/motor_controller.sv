@@ -16,7 +16,7 @@ module motor_controller(
 wire [3:0] hard_code;
 assign hard_code = 4'b0010;
 
-reg [31:0] counter;
+reg [31:0] counter = 0;
 reg [31:0] cyc = 0;
 
 reg CLK_200Hz;
@@ -28,7 +28,7 @@ reg CLK_200Hz;
 // directly initialized cyc to 0
 
 always @(posedge FSM_Clk) begin
-    if (counter >= 100) begin
+    if (counter >= 200) begin
         counter <= 0;
         CLK_200Hz <= ~CLK_200Hz; // Toggle the output clock
     end else begin

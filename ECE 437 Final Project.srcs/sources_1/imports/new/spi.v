@@ -22,11 +22,11 @@ module spi_toplevel(
 
  );
     
- wire [23:0] ClkDivThreshold = 5;
+ wire [23:0] ClkDivThreshold = 500; // to set FSM clk to 40 kHz? ILA clk is 20 MHz
 // wire FSM_Clk, ILA_Clk;
  wire [11:0] div;
  reg clkdiv;
- reg [8:0] count=0;
+ reg [8:0] count = 0;
  assign div = 12'h800;
 // wire [8:0] add=8'h83;
 
@@ -56,7 +56,7 @@ module spi_toplevel(
  assign CVM300_SPI_OUT=miso;
  assign CVM300_SPI_EN=en;
  assign CVM300_SPI_CLK=sclk;
- always @(posedge FSM_Clk) begin
+ always @(posedge ILA_Clk) begin
     case (State)
  // Press Button[3] to start the state machine. Otherwise, stay in the STATE_INIT state
  STATE_INIT : begin

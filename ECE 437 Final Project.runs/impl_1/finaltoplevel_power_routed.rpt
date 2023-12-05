@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date             : Fri Nov 24 13:24:18 2023
-| Host             : ECEB-4022-10 running 64-bit major release  (build 9200)
+| Date             : Mon Dec  4 18:52:24 2023
+| Host             : ECEB-4022-11 running 64-bit major release  (build 9200)
 | Command          : report_power -file finaltoplevel_power_routed.rpt -pb finaltoplevel_power_summary_routed.pb -rpx finaltoplevel_power_routed.rpx
 | Design           : finaltoplevel
 | Device           : xc7a75tfgg484-1
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.257        |
+| Total On-Chip Power (W)  | 0.250        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.151        |
+| Dynamic (W)              | 0.144        |
 | Device Static (W)        | 0.106        |
 | Effective TJA (C/W)      | 2.7          |
 | Max Ambient (C)          | 84.3         |
@@ -53,21 +53,21 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.007 |        7 |       --- |             --- |
-| Slice Logic              |     0.010 |    11263 |       --- |             --- |
-|   LUT as Logic           |     0.009 |     3614 |     47200 |            7.66 |
+| Slice Logic              |     0.007 |    11269 |       --- |             --- |
+|   LUT as Logic           |     0.006 |     3616 |     47200 |            7.66 |
 |   CARRY4                 |    <0.001 |      211 |     15850 |            1.33 |
-|   Register               |    <0.001 |     5262 |     94400 |            5.57 |
+|   Register               |    <0.001 |     5265 |     94400 |            5.58 |
 |   LUT as Distributed RAM |    <0.001 |      184 |     19000 |            0.97 |
-|   LUT as Shift Register  |    <0.001 |      237 |     19000 |            1.25 |
 |   F7/F8 Muxes            |    <0.001 |      132 |     63400 |            0.21 |
-|   BUFG                   |    <0.001 |        3 |        32 |            9.38 |
-|   Others                 |     0.000 |      690 |       --- |             --- |
-| Signals                  |     0.011 |     8142 |       --- |             --- |
+|   Others                 |     0.000 |      691 |       --- |             --- |
+|   LUT as Shift Register  |     0.000 |      237 |     19000 |            1.25 |
+|   BUFG                   |     0.000 |        3 |        32 |            9.38 |
+| Signals                  |     0.006 |     8154 |       --- |             --- |
 | Block RAM                |     0.004 |       27 |       105 |           25.71 |
 | MMCM                     |     0.106 |        1 |         6 |           16.67 |
 | I/O                      |     0.014 |       75 |       285 |           26.32 |
 | Static Power             |     0.106 |          |           |                 |
-| Total                    |     0.257 |          |           |                 |
+| Total                    |     0.250 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -77,7 +77,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.050 |       0.035 |      0.016 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.043 |       0.027 |      0.016 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.079 |       0.061 |      0.018 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.004 |       0.000 |      0.004 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -150,22 +150,19 @@ Table of Contents
 +-------------------------------------+-----------+
 | Name                                | Power (W) |
 +-------------------------------------+-----------+
-| finaltoplevel                       |     0.151 |
+| finaltoplevel                       |     0.144 |
 |   FIFO_for_Counter_BTPipe_Interface |     0.002 |
 |     U0                              |     0.002 |
 |       inst_fifo_gen                 |     0.002 |
 |   I2C_Test1                         |     0.003 |
-|   dbg_hub                           |     0.002 |
-|     inst                            |     0.002 |
-|       BSCANID.u_xsdbm_id            |     0.002 |
+|   dbg_hub                           |     0.001 |
+|     inst                            |     0.001 |
+|       BSCANID.u_xsdbm_id            |     0.001 |
 |   hostIF                            |     0.130 |
 |     core0                           |     0.013 |
 |       core0                         |     0.013 |
-|   ila_sample12                      |     0.007 |
-|     inst                            |     0.007 |
-|       ila_core_inst                 |     0.007 |
-|   spi                               |     0.005 |
-|     ClockGenerator1                 |     0.005 |
+|   spi                               |     0.004 |
+|     ClockGenerator1                 |     0.004 |
 +-------------------------------------+-----------+
 
 
